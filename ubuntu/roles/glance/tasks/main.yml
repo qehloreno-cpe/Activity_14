@@ -1,0 +1,14 @@
+---
+
+- name: install Glance for Ubuntu
+  tags:  mysql, db, mariadb
+  apt:
+    name: glance
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+
+- name: "Glance- Restarting/Enabling"
+  service:
+    name: glance-api
+    state: restarted
+  when: ansible_distribution == "Ubuntu"

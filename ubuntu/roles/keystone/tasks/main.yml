@@ -1,0 +1,8 @@
+---
+
+- name: install Keystone for Ubuntu
+  tags: mysql, apache, db,mariadb
+  apt:
+    name: keystone
+    state: latest
+  when: ansible_distribution == "Ubuntu"

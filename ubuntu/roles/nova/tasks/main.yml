@@ -1,0 +1,14 @@
+---
+
+- name: install Nova for Ubuntu
+  tags: openstack, ansible, cloud, nova
+  apt:
+    name: nova-compute
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+
+- name: "Nova- Restarting/Enabling"
+  service:
+    name: nova-compute
+    state: restarted
+  when: ansible_distribution == "Ubuntu"
